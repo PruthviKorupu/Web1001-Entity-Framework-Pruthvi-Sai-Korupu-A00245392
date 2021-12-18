@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SampleSaleApp.Models.Sale>
+
+@{
+    ViewData["Title"] = "View Sales";
+}
+
+<h1>View Sales</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SaleId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.SaleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
